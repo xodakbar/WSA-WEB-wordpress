@@ -57,7 +57,7 @@ export default function Header() {
 
           {/* Botón INTRANET */}
           <a
-            href="http://localhost:5174/login"
+            href="https://wsa-app-test.netlify.app/login"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-300 hover:text-white transition-colors duration-200 underline-offset-4 hover:underline"
