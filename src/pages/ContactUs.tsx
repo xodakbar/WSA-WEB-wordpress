@@ -9,7 +9,7 @@ import WSAIcon from '../assets/isotipo.svg';
 import WSALogo from '../assets/logo-naval.png';
 import QRAlejandro from '../assets/Alejandro-Cortes-QR-imagen-1.png';
 import QRCarlos from '../assets/Carlos-Alvarado-QR-imagenes3.png';
-import ContactUsImage from '../assets/contact.png'; // <-- Imagen hero, ajusta extensión si es diferente
+import ContactUsImage from '../assets/Contact.png'; // <-- Imagen hero, ajusta extensión si es diferente
 
 import { WhatsAppOutlined, MailOutlined } from '@ant-design/icons';
 
