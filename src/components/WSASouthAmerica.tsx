@@ -11,7 +11,7 @@ import ColombiaFlagImage from '../assets/Colombia.svg';
 import PanamaFlagImage from '../assets/Panama-1.png';
 import AntarticaFlagImage from '../assets/antarctic.jpg';
 
-import ChilePanelImage from '../assets/chile2.png';
+import ChilePanelImage from '../assets/Chile2.png';
 import ArgentinaPanelImage from '../assets/Argentina2.png';
 import UruguayPanelImage from '../assets/Uruguay2.png';
 import PeruPanelImage from '../assets/Peru2.png';
