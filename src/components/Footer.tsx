@@ -27,9 +27,15 @@ export default function Footer() {
           >
             HOME
           </Link>
-          <a href="#gallery" className="hover:text-white transition-colors">
-            Gallery
-          </a>
+          <Link
+            to="/ServicesSection"
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className={`transition-colors duration-200 ${
+              isActive('/about') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
+            }`}
+          >
+            SERVICE
+          </Link>
           <Link
             to="/about"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

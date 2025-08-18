@@ -1,6 +1,6 @@
 import type { JSX } from 'react';
 
-// Imágenes (importa tus imágenes aquí)
+// Imágenes
 import fullAgentImg from '../assets/fullagent5.jpg';
 import maritimeSupportImg from '../assets/maritime-support.jpg';
 import maritimeSolutionsImg from '../assets/maritime-solutions1.jpg';
@@ -71,7 +71,7 @@ function ServiceCard({
       aria-label={`Ver más sobre ${title}`}
       className="block transition-transform duration-300 ease-in-out hover:scale-[1.02]"
     >
-      <div className="relative flex w-full h-32 md:h-36 overflow-hidden rounded-md shadow-md border border-gray-200 bg-white">
+      <div className="relative flex w-full h-40 md:h-48 overflow-hidden rounded-md shadow-md border border-gray-200 bg-white">
         {/* Lado izquierdo blanco con contenido */}
         <div className="w-1/2 z-20 flex items-center px-4">
           <div>
@@ -86,19 +86,23 @@ function ServiceCard({
 
         {/* Lado derecho con imagen */}
         <div className="relative w-1/2 h-full overflow-hidden rounded-r-md">
-          <img
-            src={image}
-            alt={title}
-            className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105"
-            loading="lazy"
-            draggable={false}
-          />
+          {/* Contenedor absoluto para evitar líneas al escalar */}
+          <div className="absolute inset-0 overflow-hidden">
+            <img
+              src={image}
+              alt={title}
+              className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105"
+              loading="lazy"
+              draggable={false}
+            />
+          </div>
 
-          {/* Triángulo blanco superpuesto (clip-path) */}
+          {/* Triángulo blanco superpuesto */}
           <div
-            className="absolute top-0 left-0 w-full h-full z-10 bg-white"
+            className="absolute top-0 left-0 w-full h-full pointer-events-none"
             style={{
               clipPath: 'polygon(0 0, 20% 0, 0 100%)',
+              backgroundColor: 'white',
             }}
           />
         </div>
@@ -120,7 +124,7 @@ export default function ServicesSection(): JSX.Element {
           </p>
         </div>
 
-        {/* Grid 3x2 */}
+        {/* Grid responsive 1x6 en móvil y 2x3 en desktop */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((service) => (
             <ServiceCard
