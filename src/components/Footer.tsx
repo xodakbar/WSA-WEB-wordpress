@@ -28,10 +28,10 @@ export default function Footer() {
             HOME
           </Link>
           <Link
-            to="/ServicesSection"
+            to="/#services"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className={`transition-colors duration-200 ${
-              isActive('/about') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
+              isActive('/#services') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
             }`}
           >
             SERVICE

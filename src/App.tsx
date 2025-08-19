@@ -9,11 +9,14 @@ import AntarcticServices from './pages/servicios/antarctic-services';
 import WhatsAppButton from './components/WhatsAppButton';
 import AboutUs from './pages/About';
 import ContactUsPage from './pages/ContactUs';
-
+import ScrollToHashElement from './components/ScrollToHashElement'; // <-- nuevo
 
 function App() {
   return (
     <BrowserRouter>
+      {/* Maneja scroll automático con hash (#services, etc.) */}
+      <ScrollToHashElement />
+
       <div className="min-h-screen flex flex-col">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -24,8 +27,8 @@ function App() {
           <Route path="/servicios/maritime-logistic" element={<MaritimeLogistic />} />
           <Route path="/servicios/antarctic-services" element={<AntarcticServices />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/ContactUspage" element={<ContactUsPage />} />
-
+          {/* corregida ruta en minúsculas */}
+          <Route path="/contactus" element={<ContactUsPage />} />
         </Routes>
 
         {/* Botón flotante de WhatsApp */}

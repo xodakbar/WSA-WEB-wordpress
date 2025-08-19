@@ -63,50 +63,35 @@ const ContactUsPage: React.FC = () => {
   return (
     <div className="bg-gray-50 min-h-screen flex flex-col font-sans text-gray-900">
       <Header />
-
       {/* Hero Section con 2 imágenes estilo cards y línea diagonal en el medio */}
-      {/* Hero Section con 2 imágenes lado a lado y diagonal visual */}
-<motion.section
-  className="relative w-full h-64 md:h-96 mb-10 flex overflow-hidden rounded-b-3xl shadow-lg"
-  initial={{ opacity: 0, y: -20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
->
-  {/* Imagen izquierda */}
-  <div className="w-1/2 h-full overflow-hidden">
-    <img
-      src={HeroImg1}
-      alt="Hero 1"
-      className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
-      loading="lazy"
-      draggable={false}
-    />
-  </div>
+      <motion.section
+        className="relative w-full h-64 md:h-96 mb-10 flex overflow-hidden rounded-b-3xl shadow-lg"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Imagen izquierda */}
+        <div className="w-1/2 h-full overflow-hidden">
+          <img
+            src={HeroImg1}
+            alt="Hero 1"
+            className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+            loading="lazy"
+            draggable={false}
+          />
+        </div>
 
-  {/* Imagen derecha */}
-  <div className="w-1/2 h-full overflow-hidden">
-    <img
-      src={HeroImg2}
-      alt="Hero 2"
-      className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
-      loading="lazy"
-      draggable={false}
-    />
-  </div>
-</motion.section>
-
-
-
-
-
-
-
-
-
-
-
-
-
+        {/* Imagen derecha */}
+        <div className="w-1/2 h-full overflow-hidden">
+          <img
+            src={HeroImg2}
+            alt="Hero 2"
+            className="w-full h-full object-cover transition-transform duration-300 ease-in-out hover:scale-105"
+            loading="lazy"
+            draggable={false}
+          />
+        </div>
+      </motion.section>
       <main className="flex-grow max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Left: Form */}
         <motion.section
