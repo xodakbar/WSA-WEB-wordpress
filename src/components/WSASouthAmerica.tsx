@@ -13,14 +13,14 @@ import PanamaFlagImage from '../assets/Panama-1.png';
 import AntarticaFlagImage from '../assets/antarctic.jpg';
 
 // Panels
-import ChilePanelImage from '../assets/Chile2.png';
-import ArgentinaPanelImage from '../assets/Argentina2.png';
-import UruguayPanelImage from '../assets/Uruguay2.png';
-import PeruPanelImage from '../assets/Peru2.png';
-import EcuadorPanelImage from '../assets/Ecuador2.png';
-import ColombiaPanelImage from '../assets/Colombia2.png';
-import PanamaPanelImage from '../assets/Panama2.png';
-import AntarticaPanelImage from '../assets/Antartida2.png';
+import ChilePanelImage from '../assets/fullagent/foto1.png';
+import ArgentinaPanelImage from '../assets/fullagent/foto2.png';
+import UruguayPanelImage from '../assets/logistic/foto3.png';
+import PeruPanelImage from '../assets/support/foto3.png';
+import EcuadorPanelImage from '../assets/solutions/foto2.png';
+import ColombiaPanelImage from '../assets/solutions/foto3.png';
+import PanamaPanelImage from '../assets/maritime-solutions1.jpg';
+import AntarticaPanelImage from '../assets/antartic/foto3.png';
 
 // Ports & Cities
 import puertochile from '../assets/puertos/puerto valparaiso.jpg';
@@ -126,46 +126,52 @@ const WSASouthAmerica = () => {
       </div>
 
       {/* Panel lateral */}
-      <aside className={`w-full max-w-sm rounded-2xl shadow-2xl p-6 flex flex-col border border-gray-200 overflow-hidden ${selectedCountry ? `bg-gradient-to-br ${selectedCountry.color} text-white` : 'bg-white/90 text-gray-800'}`}>
-        <AnimatePresence mode="wait">
-          {selectedCountry ? (
-            <motion.div key={selectedCountry.key} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }} className="flex flex-col h-full">
-              {/* Carrusel más grande y centrado */}
-              {activeSlides.length > 0 && (
-                <div className="relative mb-5 flex-1 rounded-lg overflow-hidden shadow-md" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
-                  <AnimatePresence mode="wait">
-                    <motion.img
-                      key={`${selectedCountry.key}-${slideIndex}`}
-                      src={activeSlides[slideIndex]}
-                      alt={`${selectedCountry.name} Slide`}
-                      className="w-full h-full object-contain"
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{ duration: 0.35 }}
-                      draggable={false}
-                    />
-                  </AnimatePresence>
+      {/* Panel lateral */}
+<aside className={`w-full max-w-sm rounded-2xl shadow-2xl p-6 flex flex-col border border-gray-200 overflow-hidden ${selectedCountry ? `bg-gradient-to-br ${selectedCountry.color} text-white` : 'bg-white/90 text-gray-800'}`}>
+  <AnimatePresence mode="wait">
+    {selectedCountry ? (
+      <motion.div key={selectedCountry.key} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }} className="flex flex-col h-full">
+        {/* Carrusel más grande y centrado */}
+        {activeSlides.length > 0 && (
+          <div
+            className="relative mb-5 flex-1 rounded-xl overflow-hidden shadow-2xl bg-black/5 backdrop-blur-sm border border-white/30"
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={`${selectedCountry.key}-${slideIndex}`}
+                src={activeSlides[slideIndex]}
+                alt={`${selectedCountry.name} Slide`}
+                className="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-500 hover:scale-105"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.35 }}
+                draggable={false}
+              />
+            </AnimatePresence>
 
-                  <button onClick={() => setSlideIndex(prev => (prev - 1 + activeSlides.length) % activeSlides.length)} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-9 h-9 rounded-full grid place-items-center shadow hover:bg-white/50">‹</button>
-                  <button onClick={() => setSlideIndex(prev => (prev + 1) % activeSlides.length)} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-9 h-9 rounded-full grid place-items-center shadow hover:bg-white/50">›</button>
-                </div>
-              )}
+            <button onClick={() => setSlideIndex(prev => (prev - 1 + activeSlides.length) % activeSlides.length)} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-9 h-9 rounded-full grid place-items-center shadow hover:bg-white/50">‹</button>
+            <button onClick={() => setSlideIndex(prev => (prev + 1) % activeSlides.length)} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-9 h-9 rounded-full grid place-items-center shadow hover:bg-white/50">›</button>
+          </div>
+        )}
 
-              <h2 className="text-2xl font-bold mb-2">{selectedCountry.name}</h2>
-              {selectedCountry.contact && <p className="mb-1"><span className="font-semibold">Contacto:</span> {selectedCountry.contact}</p>}
-              <p className="mb-6"><a href={`mailto:${selectedCountry.email}`} className="underline">{selectedCountry.email}</a></p>
+        <h2 className="text-2xl font-bold mb-2">{selectedCountry.name}</h2>
+        {selectedCountry.contact && <p className="mb-1"><span className="font-semibold">Contacto:</span> {selectedCountry.contact}</p>}
+        <p className="mb-6"><a href={`mailto:${selectedCountry.email}`} className="underline">{selectedCountry.email}</a></p>
 
-              <button onClick={() => setSelectedCountryKey(null)} className="mt-auto py-2 px-4 bg-red-200 text-red-700 font-bold rounded-md hover:bg-red-300 transition">Cerrar</button>
-            </motion.div>
-          ) : (
-            <motion.div key="placeholder" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col justify-center items-center h-full text-center px-6 text-gray-500">
-              <p className="mb-6">Selecciona un país en el mapa para ver la información.</p>
-              <img src={WSAIcon} alt="WSA Icon" className="w-20 h-20 opacity-30" />
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </aside>
+        <button onClick={() => setSelectedCountryKey(null)} className="mt-auto py-2 px-4 bg-red-200 text-red-700 font-bold rounded-md hover:bg-red-300 transition">Cerrar</button>
+      </motion.div>
+    ) : (
+      <motion.div key="placeholder" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col justify-center items-center h-full text-center px-6 text-gray-500">
+        <p className="mb-6">Selecciona un país en el mapa para ver la información.</p>
+        <img src={WSAIcon} alt="WSA Icon" className="w-20 h-20 opacity-30" />
+      </motion.div>
+    )}
+  </AnimatePresence>
+</aside>
+
     </section>
   );
 };
