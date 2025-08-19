@@ -11,7 +11,7 @@ import QRAlejandro from '../assets/Alejandro-Cortes-QR-imagen-1.png';
 import QRCarlos from '../assets/Carlos-Alvarado-QR-imagenes3.png';
 
 // Imágenes del Hero
-import HeroImg1 from '../assets/fullagent/foto4.png';
+import HeroImg1 from '../assets/7.png';
 import HeroImg2 from '../assets/fullagent/foto5.png';
 
 import { WhatsAppOutlined, MailOutlined } from '@ant-design/icons';

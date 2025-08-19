@@ -52,18 +52,18 @@ type Country = {
   flagImage: string;
   panelImage: string;
   mapPosition: { top: string; left: string };
-  color: string;
+  color: string; // ahora no lo usamos dinámicamente
 };
 
 const countryData: Country[] = [
-  { key: 'chile', name: 'WSA CHILE', contact: 'Gabriel Riveros', email: 'wsa.chile@wsa-agencies.com', flagImage: ChileFlagImage, panelImage: ChilePanelImage, mapPosition: { top: '58%', left: '29%' }, color: 'from-red-400 to-pink-400' },
-  { key: 'argentina', name: 'WSA ARGENTINA', contact: 'Alejandro Cortés', email: 'wsa.argentina@wsa-agencies.com', flagImage: ArgentinaFlagImage, panelImage: ArgentinaPanelImage, mapPosition: { top: '65%', left: '42%' }, color: 'from-blue-400 to-indigo-400' },
-  { key: 'uruguay', name: 'WSA URUGUAY', contact: 'Carlos Alvarado', email: 'wsa.uruguay@wsa-agencies.com', flagImage: UruguayFlagImage, panelImage: UruguayPanelImage, mapPosition: { top: '63%', left: '45%' }, color: 'from-green-400 to-teal-400' },
-  { key: 'peru', name: 'WSA PERÚ', contact: 'Aaron Ortega', email: 'wsa.peru@wsa-agencies.com', flagImage: PeruFlagImage, panelImage: PeruPanelImage, mapPosition: { top: '33%', left: '23%' }, color: 'from-yellow-400 to-orange-400' },
-  { key: 'ecuador', name: 'WSA ECUADOR', contact: 'Andrés Moreno', email: 'wsa.ecuador@wsa-agencies.com', flagImage: EcuadorFlagImage, panelImage: EcuadorPanelImage, mapPosition: { top: '19%', left: '20%' }, color: 'from-emerald-400 to-lime-400' },
-  { key: 'colombia', name: 'WSA COLOMBIA', contact: 'Raymundo Barreto', email: 'wsa.colombia@wsa-agencies.com', flagImage: ColombiaFlagImage, panelImage: ColombiaPanelImage, mapPosition: { top: '12%', left: '23%' }, color: 'from-pink-400 to-purple-400' },
-  { key: 'panama', name: 'WSA PANAMÁ', contact: 'Rodrigo Hernández', email: 'wsa.panama@wsa-agencies.com', flagImage: PanamaFlagImage, panelImage: PanamaPanelImage, mapPosition: { top: '5%', left: '21%' }, color: 'from-indigo-400 to-blue-400' },
-  { key: 'antarctic', name: 'WSA ANTARCTIC', contact: '', email: 'info@wsa-agencies.com', flagImage: AntarticaFlagImage, panelImage: AntarticaPanelImage, mapPosition: { top: '59%', left: '62%' }, color: 'from-gray-400 to-slate-400' },
+  { key: 'chile', name: 'WSA CHILE', contact: 'Gabriel Riveros', email: 'wsa.chile@wsa-agencies.com', flagImage: ChileFlagImage, panelImage: ChilePanelImage, mapPosition: { top: '58%', left: '29%' }, color: '' },
+  { key: 'argentina', name: 'WSA ARGENTINA', contact: 'Alejandro Cortés', email: 'wsa.argentina@wsa-agencies.com', flagImage: ArgentinaFlagImage, panelImage: ArgentinaPanelImage, mapPosition: { top: '65%', left: '42%' }, color: '' },
+  { key: 'uruguay', name: 'WSA URUGUAY', contact: 'Carlos Alvarado', email: 'wsa.uruguay@wsa-agencies.com', flagImage: UruguayFlagImage, panelImage: UruguayPanelImage, mapPosition: { top: '63%', left: '45%' }, color: '' },
+  { key: 'peru', name: 'WSA PERÚ', contact: 'Aaron Ortega', email: 'wsa.peru@wsa-agencies.com', flagImage: PeruFlagImage, panelImage: PeruPanelImage, mapPosition: { top: '33%', left: '23%' }, color: '' },
+  { key: 'ecuador', name: 'WSA ECUADOR', contact: 'Andrés Moreno', email: 'wsa.ecuador@wsa-agencies.com', flagImage: EcuadorFlagImage, panelImage: EcuadorPanelImage, mapPosition: { top: '19%', left: '20%' }, color: '' },
+  { key: 'colombia', name: 'WSA COLOMBIA', contact: 'Raymundo Barreto', email: 'wsa.colombia@wsa-agencies.com', flagImage: ColombiaFlagImage, panelImage: ColombiaPanelImage, mapPosition: { top: '12%', left: '23%' }, color: '' },
+  { key: 'panama', name: 'WSA PANAMÁ', contact: 'Rodrigo Hernández', email: 'wsa.panama@wsa-agencies.com', flagImage: PanamaFlagImage, panelImage: PanamaPanelImage, mapPosition: { top: '5%', left: '21%' }, color: '' },
+  { key: 'antarctic', name: 'WSA ANTARCTIC', contact: '', email: 'info@wsa-agencies.com', flagImage: AntarticaFlagImage, panelImage: AntarticaPanelImage, mapPosition: { top: '59%', left: '62%' }, color: '' },
 ];
 
 const slideImages: Record<string, string[]> = {
@@ -94,7 +94,13 @@ const WSASouthAmerica = () => {
   const selectedCountry = useMemo(() => countryData.find(c => c.key === selectedCountryKey) || null, [selectedCountryKey]);
   const activeSlides = useMemo(() => selectedCountryKey ? slideImages[selectedCountryKey] || [] : [], [selectedCountryKey]);
   usePreload(activeSlides);
-  useEffect(() => { if (!activeSlides.length || paused) return; const id = setInterval(() => setSlideIndex(p => (p + 1) % activeSlides.length), 3800); return () => clearInterval(id); }, [activeSlides, paused]);
+
+  useEffect(() => {
+    if (!activeSlides.length || paused) return;
+    const id = setInterval(() => setSlideIndex(p => (p + 1) % activeSlides.length), 3800);
+    return () => clearInterval(id);
+  }, [activeSlides, paused]);
+
   useEffect(() => setSlideIndex(0), [selectedCountryKey]);
 
   return (
@@ -127,11 +133,21 @@ const WSASouthAmerica = () => {
 
       {/* Panel lateral */}
       {/* Panel lateral */}
-<aside className={`w-full max-w-sm rounded-2xl shadow-2xl p-6 flex flex-col border border-gray-200 overflow-hidden ${selectedCountry ? `bg-gradient-to-br ${selectedCountry.color} text-white` : 'bg-white/90 text-gray-800'}`}>
+{/* Panel lateral */}
+<aside
+  className={`w-full max-w-sm rounded-2xl shadow-2xl p-6 flex flex-col border border-gray-200 overflow-hidden
+    ${selectedCountry ? 'bg-gray-300 text-gray-800' : 'bg-white/90 text-gray-800'}`}
+>
   <AnimatePresence mode="wait">
     {selectedCountry ? (
-      <motion.div key={selectedCountry.key} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} transition={{ duration: 0.3 }} className="flex flex-col h-full">
-        {/* Carrusel más grande y centrado */}
+      <motion.div
+        key={selectedCountry.key}
+        initial={{ opacity: 0, x: 30 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -30 }}
+        transition={{ duration: 0.3 }}
+        className="flex flex-col h-full"
+      >
         {activeSlides.length > 0 && (
           <div
             className="relative mb-5 flex-1 rounded-xl overflow-hidden shadow-2xl bg-black/5 backdrop-blur-sm border border-white/30"
@@ -152,25 +168,53 @@ const WSASouthAmerica = () => {
               />
             </AnimatePresence>
 
-            <button onClick={() => setSlideIndex(prev => (prev - 1 + activeSlides.length) % activeSlides.length)} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-9 h-9 rounded-full grid place-items-center shadow hover:bg-white/50">‹</button>
-            <button onClick={() => setSlideIndex(prev => (prev + 1) % activeSlides.length)} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-9 h-9 rounded-full grid place-items-center shadow hover:bg-white/50">›</button>
+            <button
+              onClick={() => setSlideIndex(prev => (prev - 1 + activeSlides.length) % activeSlides.length)}
+              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-9 h-9 rounded-full grid place-items-center shadow hover:bg-white/50"
+            >
+              ‹
+            </button>
+            <button
+              onClick={() => setSlideIndex(prev => (prev + 1) % activeSlides.length)}
+              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-9 h-9 rounded-full grid place-items-center shadow hover:bg-white/50"
+            >
+              ›
+            </button>
           </div>
         )}
 
         <h2 className="text-2xl font-bold mb-2">{selectedCountry.name}</h2>
-        {selectedCountry.contact && <p className="mb-1"><span className="font-semibold">Contacto:</span> {selectedCountry.contact}</p>}
-        <p className="mb-6"><a href={`mailto:${selectedCountry.email}`} className="underline">{selectedCountry.email}</a></p>
+        {selectedCountry.contact && (
+          <p className="mb-1">
+            <span className="font-semibold">Contacto:</span> {selectedCountry.contact}
+          </p>
+        )}
+        <p className="mb-6">
+          <a href={`mailto:${selectedCountry.email}`} className="underline">{selectedCountry.email}</a>
+        </p>
 
-        <button onClick={() => setSelectedCountryKey(null)} className="mt-auto py-2 px-4 bg-red-200 text-red-700 font-bold rounded-md hover:bg-red-300 transition">Cerrar</button>
+        <button
+          onClick={() => setSelectedCountryKey(null)}
+          className="mt-auto py-2 px-4 bg-red-200 text-red-700 font-bold rounded-md hover:bg-red-300 transition"
+        >
+          Cerrar
+        </button>
       </motion.div>
     ) : (
-      <motion.div key="placeholder" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="flex flex-col justify-center items-center h-full text-center px-6 text-gray-500">
+      <motion.div
+        key="placeholder"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="flex flex-col justify-center items-center h-full text-center px-6 text-gray-500"
+      >
         <p className="mb-6">Selecciona un país en el mapa para ver la información.</p>
         <img src={WSAIcon} alt="WSA Icon" className="w-20 h-20 opacity-30" />
       </motion.div>
     )}
   </AnimatePresence>
 </aside>
+
 
     </section>
   );

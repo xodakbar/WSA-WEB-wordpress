@@ -13,7 +13,7 @@ export default function Header() {
   const isActive = (path: string) => location.pathname.toLowerCase() === path.toLowerCase();
 
   return (
-    <header className="sticky top-0 z-50 bg-gray-900 shadow-md">
+    <header className="sticky top-0 z-50 bg-gradient-to-r from-gray-200 to-blue-900 shadow-md">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <div className="flex items-center space-x-4">
@@ -21,7 +21,6 @@ export default function Header() {
             src={logoNaval}
             alt="Logo Naval"
             className="h-12 w-auto object-contain select-none"
-            style={{ filter: 'brightness(1.69)' }}
           />
         </div>
 
@@ -31,7 +30,7 @@ export default function Header() {
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className={`transition-colors duration-200 ${
-              isActive('/') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-300 hover:text-white'
+              isActive('/') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-100 hover:text-white'
             }`}
           >
             HOME
@@ -40,16 +39,16 @@ export default function Header() {
             to="/about"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className={`transition-colors duration-200 ${
-              isActive('/about') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
+              isActive('/about') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-100 hover:text-white'
             }`}
           >
             ABOUT US
           </Link>
           <Link
-            to="/contactuspage"
+            to="/contactus"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className={`transition-colors duration-200 ${
-              isActive('/contactuspage') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
+              isActive('/contactus') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-100 hover:text-white'
             }`}
           >
             CONTACT US
@@ -60,14 +59,14 @@ export default function Header() {
             href="https://wsa-app-test.netlify.app/login"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-gray-300 hover:text-white transition-colors duration-200 underline-offset-4 hover:underline"
+            className="text-gray-100 hover:text-white transition-colors duration-200 underline-offset-4 hover:underline"
           >
             INTRANET
           </a>
         </nav>
 
         {/* Redes sociales */}
-        <div className="flex items-center space-x-6 text-gray-400 text-xl">
+        <div className="flex items-center space-x-6 text-gray-100 text-xl">
           <a
             href="https://www.facebook.com/people/WSA-Ships-Agency/100063644464259"
             target="_blank"
