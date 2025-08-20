@@ -8,8 +8,8 @@ import foto1 from '../../assets/solutions/foto1.png';
 import foto2 from '../../assets/solutions/foto2.png';
 import foto3 from '../../assets/solutions/foto3.png';
 import foto4 from '../../assets/solutions/foto4.png';
-import foto5 from '../../assets/solutions/foto5.png';
-import foto6 from '../../assets/solutions/foto6.png';
+import foto5 from '../../assets/solutions/12.png';
+import foto6 from '../../assets/solutions/13.png';
 
 const images = [foto1, foto2, foto3, foto4, foto5, foto6];
 

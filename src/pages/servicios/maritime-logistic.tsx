@@ -8,7 +8,7 @@ import foto1 from '../../assets/logistic/foto1.png';
 import foto2 from '../../assets/logistic/foto2.png';
 import foto3 from '../../assets/logistic/foto3.png';
 import foto4 from '../../assets/logistic/foto4.png';
-import foto5 from '../../assets/logistic/foto5.png';
+import foto5 from '../../assets/logistic/20.png';
 import videoLogistic from '../../assets/video-logistic.mp4';
 
 const images = [foto1, foto2, foto3, foto4, foto5];

@@ -8,7 +8,7 @@ import WSAIcon from '../../assets/isotipo.svg';
 import foto1 from '../../assets/fullagent/foto1.png';
 import foto2 from '../../assets/fullagent/foto2.png';
 import foto3 from '../../assets/fullagent/foto3.png';
-import foto4 from '../../assets/fullagent/foto4.png';
+import foto4 from '../../assets/7.png';
 import foto5 from '../../assets/fullagent/foto5.png';
 
 const images = [foto1, foto2, foto3, foto4, foto5];
