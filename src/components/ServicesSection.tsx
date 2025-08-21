@@ -16,55 +16,15 @@ interface Service {
 }
 
 const services: Service[] = [
-  {
-    id: 'full-agent',
-    title: 'FULL AGENT',
-    subtitle: 'OWNERS OR CHARTERERS NOMINATIONS',
-    backgroundImage: fullAgentImg,
-  },
-  {
-    id: 'husbandry-agent',
-    title: 'HUSBANDRY AGENT',
-    subtitle: 'SPECIALIZED IN OWNERS MATTERS',
-    backgroundImage: husbandryImg,
-  },
-  {
-    id: 'maritime-support',
-    title: 'MARITIME SUPPORT',
-    subtitle: 'OWNERS ASSISTANCE',
-    backgroundImage: maritimeSupportImg,
-  },
-  {
-    id: 'maritime-solutions',
-    title: 'MARITIME SOLUTIONS',
-    subtitle: 'SHIPS SUPPLY',
-    backgroundImage: maritimeSolutionsImg,
-  },
-  {
-    id: 'maritime-logistic',
-    title: 'MARITIME LOGISTIC',
-    subtitle: 'LAST MILE SERVICE',
-    backgroundImage: maritimeLogistic,
-  },
-  {
-    id: 'antarctic-services',
-    title: 'ANTARCTIC SERVICES',
-    subtitle: 'AGENCY',
-    backgroundImage: antarticImg,
-  },
+  { id: 'full-agent', title: 'FULL AGENT', subtitle: 'OWNERS OR CHARTERERS NOMINATIONS', backgroundImage: fullAgentImg },
+  { id: 'husbandry-agent', title: 'HUSBANDRY AGENT', subtitle: 'SPECIALIZED IN OWNERS MATTERS', backgroundImage: husbandryImg },
+  { id: 'maritime-support', title: 'MARITIME SUPPORT', subtitle: 'OWNERS ASSISTANCE', backgroundImage: maritimeSupportImg },
+  { id: 'maritime-solutions', title: 'MARITIME SOLUTIONS', subtitle: 'SHIPS SUPPLY', backgroundImage: maritimeSolutionsImg },
+  { id: 'maritime-logistic', title: 'MARITIME LOGISTIC', subtitle: 'LAST MILE SERVICE', backgroundImage: maritimeLogistic },
+  { id: 'antarctic-services', title: 'ANTARCTIC SERVICES', subtitle: 'AGENCY', backgroundImage: antarticImg },
 ];
 
-function ServiceCard({
-  id,
-  title,
-  subtitle,
-  image,
-}: {
-  id: string;
-  title: string;
-  subtitle: string;
-  image: string;
-}): JSX.Element {
+function ServiceCard({ id, title, subtitle, image }: { id: string; title: string; subtitle: string; image: string; }): JSX.Element {
   return (
     <a
       href={`/servicios/${id}`}
@@ -75,18 +35,13 @@ function ServiceCard({
         {/* Lado izquierdo blanco con contenido */}
         <div className="w-1/2 z-20 flex items-center px-4">
           <div>
-            <h3 className="text-base md:text-lg font-extrabold text-blue-900">
-              {title}
-            </h3>
-            <p className="text-xs md:text-sm font-semibold text-green-600">
-              {subtitle}
-            </p>
+            <h3 className="text-base md:text-lg font-extrabold text-blue-900">{title}</h3>
+            <p className="text-xs md:text-sm font-semibold text-green-600">{subtitle}</p>
           </div>
         </div>
 
         {/* Lado derecho con imagen */}
         <div className="relative w-1/2 h-full overflow-hidden rounded-r-md">
-          {/* Contenedor absoluto para evitar líneas al escalar */}
           <div className="absolute inset-0 overflow-hidden">
             <img
               src={image}
@@ -96,14 +51,9 @@ function ServiceCard({
               draggable={false}
             />
           </div>
-
-          {/* Triángulo blanco superpuesto */}
           <div
             className="absolute top-0 left-0 w-full h-full pointer-events-none"
-            style={{
-              clipPath: 'polygon(0 0, 20% 0, 0 100%)',
-              backgroundColor: 'white',
-            }}
+            style={{ clipPath: 'polygon(0 0, 20% 0, 0 100%)', backgroundColor: 'white' }}
           />
         </div>
       </div>
@@ -124,8 +74,8 @@ export default function ServicesSection(): JSX.Element {
           </p>
         </div>
 
-        {/* Grid responsive 1x6 en móvil y 2x3 en desktop */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Grid: 1 columna en móviles, 2 columnas en desktop fijas */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-6 auto-rows-min">
           {services.map((service) => (
             <ServiceCard
               key={service.id}

@@ -52,18 +52,17 @@ type Country = {
   flagImage: string;
   panelImage: string;
   mapPosition: { top: string; left: string };
-  color: string; // ahora no lo usamos dinámicamente
 };
 
 const countryData: Country[] = [
-  { key: 'chile', name: 'WSA CHILE', contact: 'Gabriel Riveros', email: 'wsa.chile@wsa-agencies.com', flagImage: ChileFlagImage, panelImage: ChilePanelImage, mapPosition: { top: '58%', left: '29%' }, color: '' },
-  { key: 'argentina', name: 'WSA ARGENTINA', contact: 'Alejandro Cortés', email: 'wsa.argentina@wsa-agencies.com', flagImage: ArgentinaFlagImage, panelImage: ArgentinaPanelImage, mapPosition: { top: '65%', left: '42%' }, color: '' },
-  { key: 'uruguay', name: 'WSA URUGUAY', contact: 'Carlos Alvarado', email: 'wsa.uruguay@wsa-agencies.com', flagImage: UruguayFlagImage, panelImage: UruguayPanelImage, mapPosition: { top: '63%', left: '45%' }, color: '' },
-  { key: 'peru', name: 'WSA PERÚ', contact: 'Aaron Ortega', email: 'wsa.peru@wsa-agencies.com', flagImage: PeruFlagImage, panelImage: PeruPanelImage, mapPosition: { top: '33%', left: '23%' }, color: '' },
-  { key: 'ecuador', name: 'WSA ECUADOR', contact: 'Andrés Moreno', email: 'wsa.ecuador@wsa-agencies.com', flagImage: EcuadorFlagImage, panelImage: EcuadorPanelImage, mapPosition: { top: '19%', left: '20%' }, color: '' },
-  { key: 'colombia', name: 'WSA COLOMBIA', contact: 'Raymundo Barreto', email: 'wsa.colombia@wsa-agencies.com', flagImage: ColombiaFlagImage, panelImage: ColombiaPanelImage, mapPosition: { top: '12%', left: '23%' }, color: '' },
-  { key: 'panama', name: 'WSA PANAMÁ', contact: 'Rodrigo Hernández', email: 'wsa.panama@wsa-agencies.com', flagImage: PanamaFlagImage, panelImage: PanamaPanelImage, mapPosition: { top: '5%', left: '21%' }, color: '' },
-  { key: 'antarctic', name: 'WSA ANTARCTIC', contact: '', email: 'info@wsa-agencies.com', flagImage: AntarticaFlagImage, panelImage: AntarticaPanelImage, mapPosition: { top: '59%', left: '62%' }, color: '' },
+  { key: 'chile', name: 'WSA CHILE', contact: 'Gabriel Riveros', email: 'wsa.chile@wsa-agencies.com', flagImage: ChileFlagImage, panelImage: ChilePanelImage, mapPosition: { top: '58%', left: '29%' } },
+  { key: 'argentina', name: 'WSA ARGENTINA', contact: 'Alejandro Cortés', email: 'wsa.argentina@wsa-agencies.com', flagImage: ArgentinaFlagImage, panelImage: ArgentinaPanelImage, mapPosition: { top: '65%', left: '42%' } },
+  { key: 'uruguay', name: 'WSA URUGUAY', contact: 'Carlos Alvarado', email: 'wsa.uruguay@wsa-agencies.com', flagImage: UruguayFlagImage, panelImage: UruguayPanelImage, mapPosition: { top: '63%', left: '45%' } },
+  { key: 'peru', name: 'WSA PERÚ', contact: 'Aaron Ortega', email: 'wsa.peru@wsa-agencies.com', flagImage: PeruFlagImage, panelImage: PeruPanelImage, mapPosition: { top: '33%', left: '23%' } },
+  { key: 'ecuador', name: 'WSA ECUADOR', contact: 'Andrés Moreno', email: 'wsa.ecuador@wsa-agencies.com', flagImage: EcuadorFlagImage, panelImage: EcuadorPanelImage, mapPosition: { top: '19%', left: '20%' } },
+  { key: 'colombia', name: 'WSA COLOMBIA', contact: 'Raymundo Barreto', email: 'wsa.colombia@wsa-agencies.com', flagImage: ColombiaFlagImage, panelImage: ColombiaPanelImage, mapPosition: { top: '12%', left: '23%' } },
+  { key: 'panama', name: 'WSA PANAMÁ', contact: 'Rodrigo Hernández', email: 'wsa.panama@wsa-agencies.com', flagImage: PanamaFlagImage, panelImage: PanamaPanelImage, mapPosition: { top: '5%', left: '21%' } },
+  { key: 'antarctic', name: 'WSA ANTARCTIC', contact: '', email: 'info@wsa-agencies.com', flagImage: AntarticaFlagImage, panelImage: AntarticaPanelImage, mapPosition: { top: '59%', left: '62%' } },
 ];
 
 const slideImages: Record<string, string[]> = {
@@ -104,118 +103,144 @@ const WSASouthAmerica = () => {
   useEffect(() => setSlideIndex(0), [selectedCountryKey]);
 
   return (
-    <section className="py-16 px-6 max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-10 min-h-[720px]">
+    <section className="py-16 px-4 sm:px-6 max-w-[1400px] mx-auto flex flex-col lg:flex-row gap-10 min-h-[720px]">
       {/* Mapa */}
-      <div className="relative flex-shrink-0 w-full lg:w-[860px] h-[620px] rounded-xl overflow-hidden shadow-xl bg-white mx-auto">
-        <img src={SouthAmericaMap} alt="South America Map" className="w-full h-full object-contain" draggable={false} />
+      <div className="relative w-full lg:w-[860px] aspect-[860/620] rounded-xl overflow-hidden shadow-xl bg-white mx-auto">
+        <img
+          src={SouthAmericaMap}
+          alt="South America Map"
+          className="w-full h-full object-contain"
+          draggable={false}
+        />
         {countryData.map((country) => (
-          <Popover key={country.key} content={
-            <div className="text-center p-4 rounded-md bg-white shadow-md select-none max-w-xs">
-              <img src={country.flagImage} alt={`${country.name} flag`} className="w-full h-28 object-contain rounded-md mb-3 border border-gray-200" />
-              <h3 className="uppercase font-semibold text-lg text-gray-900 mb-1">{country.name}</h3>
-              {country.contact && <p className="text-gray-700 mb-1"><span className="font-semibold">Contacto: </span>{country.contact}</p>}
-              <p className="text-blue-600 hover:underline"><a href={`mailto:${country.email}`} onClick={(e) => e.stopPropagation()}>{country.email}</a></p>
-            </div>
-          } trigger="hover" overlayStyle={{ padding: 0 }}>
+          <Popover
+            key={country.key}
+            content={
+              <div className="text-center p-4 rounded-md bg-white shadow-md select-none max-w-xs">
+                <img
+                  src={country.flagImage}
+                  alt={`${country.name} flag`}
+                  className="w-full h-28 object-contain rounded-md mb-3 border border-gray-200"
+                />
+                <h3 className="uppercase font-semibold text-lg text-gray-900 mb-1">{country.name}</h3>
+                {country.contact && (
+                  <p className="text-gray-700 mb-1">
+                    <span className="font-semibold">Contacto: </span>
+                    {country.contact}
+                  </p>
+                )}
+                <p className="text-blue-600 hover:underline">
+                  <a href={`mailto:${country.email}`} onClick={(e) => e.stopPropagation()}>{country.email}</a>
+                </p>
+              </div>
+            }
+            trigger="hover"
+            overlayStyle={{ padding: 0 }}
+          >
             <button
-              aria-label={`Mostrar info de ${country.name}`}
-              onClick={() => setSelectedCountryKey(prev => prev === country.key ? null : country.key)}
-              type="button"
-              className={`absolute -translate-x-1/2 -translate-y-1/2 p-0 border-0 bg-transparent rounded-full transition-shadow duration-300
-                ${selectedCountryKey === country.key ? 'shadow-[0_0_20px_6px_rgba(37,99,235,0.85)]' : 'hover:shadow-[0_0_18px_4px_rgba(37,99,235,0.6)]'}`}
-              style={{ top: country.mapPosition.top, left: country.mapPosition.left }}
-            >
-              <img src={MapIcon} alt="" className="w-7 h-7 pointer-events-none" draggable={false} />
-            </button>
+  aria-label={`Mostrar info de ${country.name}`}
+  onClick={() =>
+    setSelectedCountryKey(prev => (prev === country.key ? null : country.key))
+  }
+  type="button"
+  className={`absolute -translate-x-1/2 -translate-y-1/2 p-0 border-0 bg-transparent rounded-full transition-shadow duration-300
+    ${selectedCountryKey === country.key 
+      ? 'shadow-[0_0_20px_6px_rgba(37,99,235,0.85)]' 
+      : 'hover:shadow-[0_0_18px_4px_rgba(37,99,235,0.6)]'}
+    w-4 h-4 sm:w-6 sm:h-6`} // w-4/h-4 = 1rem en móviles, sm:w-6/h-6 = 1.5rem en pantallas ≥640px
+  style={{
+    top: country.mapPosition.top,
+    left: country.mapPosition.left,
+  }}
+>
+  <img src={MapIcon} alt="" className="w-full h-full pointer-events-none" draggable={false} />
+</button>
+
           </Popover>
         ))}
       </div>
 
       {/* Panel lateral */}
-      {/* Panel lateral */}
-{/* Panel lateral */}
-<aside
-  className={`w-full max-w-sm rounded-2xl shadow-2xl p-6 flex flex-col border border-gray-200 overflow-hidden
-    ${selectedCountry ? 'bg-gray-300 text-gray-800' : 'bg-white/90 text-gray-800'}`}
->
-  <AnimatePresence mode="wait">
-    {selectedCountry ? (
-      <motion.div
-        key={selectedCountry.key}
-        initial={{ opacity: 0, x: 30 }}
-        animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, x: -30 }}
-        transition={{ duration: 0.3 }}
-        className="flex flex-col h-full"
+      <aside
+        className={`w-full max-w-sm rounded-2xl shadow-2xl p-6 flex flex-col border border-gray-200 overflow-hidden
+          ${selectedCountry ? 'bg-gray-300 text-gray-800' : 'bg-white/90 text-gray-800'}`}
       >
-        {activeSlides.length > 0 && (
-          <div
-            className="relative mb-5 flex-1 rounded-xl overflow-hidden shadow-2xl bg-black/5 backdrop-blur-sm border border-white/30"
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={`${selectedCountry.key}-${slideIndex}`}
-                src={activeSlides[slideIndex]}
-                alt={`${selectedCountry.name} Slide`}
-                className="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-500 hover:scale-105"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.35 }}
-                draggable={false}
-              />
-            </AnimatePresence>
-
-            <button
-              onClick={() => setSlideIndex(prev => (prev - 1 + activeSlides.length) % activeSlides.length)}
-              className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-9 h-9 rounded-full grid place-items-center shadow hover:bg-white/50"
+        <AnimatePresence mode="wait">
+          {selectedCountry ? (
+            <motion.div
+              key={selectedCountry.key}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{ duration: 0.3 }}
+              className="flex flex-col h-full"
             >
-              ‹
-            </button>
-            <button
-              onClick={() => setSlideIndex(prev => (prev + 1) % activeSlides.length)}
-              className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-9 h-9 rounded-full grid place-items-center shadow hover:bg-white/50"
+              {activeSlides.length > 0 && (
+                <div
+                  className="relative mb-5 flex-1 rounded-xl overflow-hidden shadow-2xl bg-black/5 backdrop-blur-sm border border-white/30"
+                  onMouseEnter={() => setPaused(true)}
+                  onMouseLeave={() => setPaused(false)}
+                >
+                  <AnimatePresence mode="wait">
+                    <motion.img
+                      key={`${selectedCountry.key}-${slideIndex}`}
+                      src={activeSlides[slideIndex]}
+                      alt={`${selectedCountry.name} Slide`}
+                      className="w-full h-full object-cover rounded-xl shadow-lg transition-transform duration-500 hover:scale-105"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.35 }}
+                      draggable={false}
+                    />
+                  </AnimatePresence>
+
+                  <button
+                    onClick={() => setSlideIndex(prev => (prev - 1 + activeSlides.length) % activeSlides.length)}
+                    className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-8 h-8 sm:w-9 sm:h-9 rounded-full grid place-items-center shadow hover:bg-white/50"
+                  >
+                    ‹
+                  </button>
+                  <button
+                    onClick={() => setSlideIndex(prev => (prev + 1) % activeSlides.length)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/30 text-white w-8 h-8 sm:w-9 sm:h-9 rounded-full grid place-items-center shadow hover:bg-white/50"
+                  >
+                    ›
+                  </button>
+                </div>
+              )}
+
+              <h2 className="text-xl sm:text-2xl font-bold mb-2">{selectedCountry.name}</h2>
+              {selectedCountry.contact && (
+                <p className="mb-1">
+                  <span className="font-semibold">Contacto:</span> {selectedCountry.contact}
+                </p>
+              )}
+              <p className="mb-6">
+                <a href={`mailto:${selectedCountry.email}`} className="underline">{selectedCountry.email}</a>
+              </p>
+
+              <button
+                onClick={() => setSelectedCountryKey(null)}
+                className="mt-auto py-2 px-4 bg-red-200 text-red-700 font-bold rounded-md hover:bg-red-300 transition"
+              >
+                Cerrar
+              </button>
+            </motion.div>
+          ) : (
+            <motion.div
+              key="placeholder"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="flex flex-col justify-center items-center h-full text-center px-6 text-gray-500"
             >
-              ›
-            </button>
-          </div>
-        )}
-
-        <h2 className="text-2xl font-bold mb-2">{selectedCountry.name}</h2>
-        {selectedCountry.contact && (
-          <p className="mb-1">
-            <span className="font-semibold">Contacto:</span> {selectedCountry.contact}
-          </p>
-        )}
-        <p className="mb-6">
-          <a href={`mailto:${selectedCountry.email}`} className="underline">{selectedCountry.email}</a>
-        </p>
-
-        <button
-          onClick={() => setSelectedCountryKey(null)}
-          className="mt-auto py-2 px-4 bg-red-200 text-red-700 font-bold rounded-md hover:bg-red-300 transition"
-        >
-          Cerrar
-        </button>
-      </motion.div>
-    ) : (
-      <motion.div
-        key="placeholder"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="flex flex-col justify-center items-center h-full text-center px-6 text-gray-500"
-      >
-        <p className="mb-6">Selecciona un país en el mapa para ver la información.</p>
-        <img src={WSAIcon} alt="WSA Icon" className="w-20 h-20 opacity-30" />
-      </motion.div>
-    )}
-  </AnimatePresence>
-</aside>
-
-
+              <p className="mb-6">Selecciona un país en el mapa para ver la información.</p>
+              <img src={WSAIcon} alt="WSA Icon" className="w-20 h-20 opacity-30" />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </aside>
     </section>
   );
 };
