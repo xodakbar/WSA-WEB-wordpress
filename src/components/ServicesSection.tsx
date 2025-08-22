@@ -29,7 +29,7 @@ function ServiceCard({ id, title, subtitle, image }: { id: string; title: string
     <a
       href={`/servicios/${id}`}
       aria-label={`Ver más sobre ${title}`}
-      className="block transition-transform duration-300 ease-in-out hover:scale-[1.02]"
+      className="block"
     >
       <div className="relative flex w-full h-40 md:h-48 overflow-hidden rounded-md shadow-md border border-gray-200 bg-white">
         {/* Lado izquierdo blanco con contenido */}
@@ -42,15 +42,14 @@ function ServiceCard({ id, title, subtitle, image }: { id: string; title: string
 
         {/* Lado derecho con imagen */}
         <div className="relative w-1/2 h-full overflow-hidden rounded-r-md">
-          <div className="absolute inset-0 overflow-hidden">
-            <img
-              src={image}
-              alt={title}
-              className="object-cover w-full h-full transition-transform duration-300 ease-in-out hover:scale-105"
-              loading="lazy"
-              draggable={false}
-            />
-          </div>
+          <img
+            src={image}
+            alt={title}
+            className="object-cover w-full h-full"
+            loading="lazy"
+            draggable={false}
+          />
+          {/* Diagonal blanca */}
           <div
             className="absolute top-0 left-0 w-full h-full pointer-events-none"
             style={{ clipPath: 'polygon(0 0, 20% 0, 0 100%)', backgroundColor: 'white' }}

@@ -48,94 +48,102 @@ const ContactUs = () => {
       <hr className="border-gray-200 mb-12" />
 
       {/* Team Section */}
-      <div className="mb-12">
-        <h2
-          className="text-3xl md:text-4xl font-bold text-gray-900 mb-8"
-          style={{ fontFamily: "'Playfair Display', serif" }}
-        >
-          Meet Our{' '}
-          <span className="text-blue-800 drop-shadow-md">Team</span>
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center">
-          {/* Alejandro Cortés E */}
-          <div className="flex flex-col items-center bg-white p-10 rounded-2xl shadow-xl border border-gray-100 max-w-sm w-full transition-transform transform hover:scale-105 duration-300 ease-in-out">
-            <img
-              src={QRAlejandro}
-              alt="QR Code Alejandro Cortés E"
-              className="w-36 h-36 mb-8 rounded-xl shadow-lg"
-            />
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
-              Alejandro Cortés E
-            </h3>
-            {/* Ajustes para alineación: justify-start y un span para el texto */}
-            <div className="w-full flex items-center justify-start text-gray-700 mb-4 text-lg font-medium">
-              <WhatsAppOutlined className="text-green-500 mr-2 text-xl" />
-              <span>
-                Phone:{' '}
-                <a
-                  href="https://wa.me/56996356210"
-                  className="text-blue-800 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  +56 9 9635 6210
-                </a>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-start text-gray-700 text-lg font-medium">
-              <MailOutlined className="text-red-600 mr-2 text-xl" />
-              <span>
-                Email:{' '}
-                <a
-                  href="mailto:alejandro.cortes@wsa-agencies.com"
-                  className="text-blue-800 hover:underline"
-                >
-                  alejandro.cortes@wsa-agencies.com
-                </a>
-              </span>
-            </div>
-          </div>
+      <div className="mb-13">
+  <h2
+    className="text-3xl md:text-4xl font-bold text-gray-900 mb-8"
+    style={{ fontFamily: "'Playfair Display', serif" }}
+  >
+    Meet Our{' '}
+    <span className="text-blue-800 drop-shadow-md">Team</span>
+  </h2>
 
-          {/* Carlos Alvarado T */}
-          <div className="flex flex-col items-center bg-white p-10 rounded-2xl shadow-xl border border-gray-100 max-w-sm w-full transition-transform transform hover:scale-105 duration-300 ease-in-out">
-            <img
-              src={QRCarlos}
-              alt="QR Code Carlos Alvarado T"
-              className="w-36 h-36 mb-8 rounded-xl shadow-lg"
-            />
-            <h3 className="text-2xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
-              Carlos Alvarado T
-            </h3>
-            {/* Ajustes para alineación */}
-            <div className="w-full flex items-center justify-start text-gray-700 mb-4 text-lg font-medium">
-              <WhatsAppOutlined className="text-green-500 mr-2 text-xl" />
-              <span>
-                Phone:{' '}
-                <a
-                  href="https://wa.me/56992213900"
-                  className="text-blue-800 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  +56 9 9221 3900
-                </a>
-              </span>
-            </div>
-            <div className="w-full flex items-center justify-start text-gray-700 text-lg font-medium">
-              <MailOutlined className="text-red-600 mr-2 text-xl" />
-              <span>
-                Email:{' '}
-                <a
-                  href="mailto:carlos.alvarado@wsa-agencies.com"
-                  className="text-blue-800 hover:underline"
-                >
-                  carlos.alvarado@wsa-agencies.com
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center">
+    {/* Alejandro Cortés E */}
+    <div className="flex flex-col items-center bg-white p-10 rounded-2xl shadow-xl border border-gray-100 max-w-lg w-full transition-transform transform hover:scale-105 duration-300 ease-in-out">
+      <img
+        src={QRAlejandro}
+        alt="QR Code Alejandro Cortés E"
+        className="w-36 h-36 mb-8 rounded-xl shadow-lg"
+      />
+      <h3 className="text-2xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
+        Alejandro Cortés E
+      </h3>
+
+      {/* Phone */}
+      <div className="w-full flex items-center justify-start text-gray-700 mb-4 text-lg font-medium">
+        <WhatsAppOutlined className="text-green-500 mr-2 text-xl" />
+        <span>
+          Phone:{' '}
+          <a
+            href="https://wa.me/56996356210"
+            className="text-blue-800 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            +56 9 9635 6210
+          </a>
+        </span>
       </div>
+
+      {/* Email */}
+      <div className="w-full flex items-center justify-start text-gray-700 text-lg font-medium">
+        <MailOutlined className="text-red-600 mr-2 text-xl" />
+        <span>
+          Email:{' '}
+          <a
+            href="mailto:alejandro.cortes@wsa-agencies.com"
+            className="text-blue-800 hover:underline"
+          >
+            alejandro.cortes@wsa-agencies.com
+          </a>
+        </span>
+      </div>
+    </div>
+
+    {/* Carlos Alvarado T */}
+    <div className="flex flex-col items-center bg-white p-10 rounded-2xl shadow-xl border border-gray-100 max-w-lg w-full transition-transform transform hover:scale-105 duration-300 ease-in-out">
+      <img
+        src={QRCarlos}
+        alt="QR Code Carlos Alvarado T"
+        className="w-36 h-36 mb-8 rounded-xl shadow-lg"
+      />
+      <h3 className="text-2xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
+        Carlos Alvarado T
+      </h3>
+
+      {/* Phone */}
+      <div className="w-full flex items-center justify-start text-gray-700 mb-4 text-lg font-medium">
+        <WhatsAppOutlined className="text-green-500 mr-2 text-xl" />
+        <span>
+          Phone:{' '}
+          <a
+            href="https://wa.me/56992213900"
+            className="text-blue-800 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            +56 9 9221 3900
+          </a>
+        </span>
+      </div>
+
+      {/* Email */}
+      <div className="w-full flex items-center justify-start text-gray-700 text-lg font-medium">
+        <MailOutlined className="text-red-600 mr-2 text-xl" />
+        <span>
+          Email:{' '}
+          <a
+            href="mailto:carlos.alvarado@wsa-agencies.com"
+            className="text-blue-800 hover:underline"
+          >
+            carlos.alvarado@wsa-agencies.com
+          </a>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
 
       {/* Logo al final */}
       {WSALogo && (

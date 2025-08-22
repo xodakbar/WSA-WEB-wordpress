@@ -46,7 +46,7 @@ export default function Footer() {
             ABOUT US
           </Link>
           <Link
-            to="/contactuspage"
+            to="/contactus"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className={`transition-colors duration-200 ${
               isActive('/contactuspage') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
