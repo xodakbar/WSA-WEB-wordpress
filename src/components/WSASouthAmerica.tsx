@@ -222,10 +222,11 @@ const WSASouthAmerica = () => {
 
               <button
                 onClick={() => setSelectedCountryKey(null)}
-                className="mt-auto py-2 px-4 bg-red-200 text-red-700 font-bold rounded-md hover:bg-red-300 transition"
+                className="mt-auto py-2 px-4 bg-gray-200 text-blue-900 font-bold rounded-md hover:bg-blue-300 hover:text-blue-800 transition"
               >
                 Cerrar
               </button>
+
             </motion.div>
           ) : (
             <motion.div
