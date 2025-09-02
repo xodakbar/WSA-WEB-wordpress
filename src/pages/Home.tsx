@@ -71,8 +71,8 @@ export default function Home() {
         className="relative w-full min-h-[600px] font-mono overflow-hidden flex flex-col justify-between"
         style={{
           backgroundImage: `url(${barcoCargaImg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: "cover",
+          backgroundPosition: "center",
         }}
       >
         {/* Overlay ligero */}
@@ -81,21 +81,22 @@ export default function Home() {
         {/* Contenido principal */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8 pt-24 pb-16 text-center text-white/90">
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 drop-shadow-md">
-            {t('We Work every day building confidence.')}
+            {t("We Work every day building confidence.")}
           </h2>
           <p className="italic text-lg md:text-2xl text-white/80 drop-shadow-sm">
-            {t('Growing together!')}
+            {t("Growing together!")}
           </p>
         </div>
 
         {/* Barra inferior con FactCards */}
         <div className="relative z-10 w-full bg-black/40 backdrop-blur-md px-4 md:px-12 py-8 flex flex-col md:flex-row justify-center items-center md:space-x-16 space-y-4 md:space-y-0 text-white/90">
-          <FactCard value={2014} label={t('Año de fundación')} />
-          <FactCard value={7} label={t('Países')} />
-          <FactCard value={500} label={t('Servicios para asuntos del propietario')} sublabel={t('Por año')} />
-          <FactCard value={35} label={t('Personal')} />
+          <FactCard value={2014} label={t("Año de fundación")} counterDuration={2200} />
+          <FactCard value={7} label={t("Países")} counterDuration={1600} />
+          <FactCard value={500} label={t("Servicios para asuntos del propietario")} sublabel={t("Por año")} counterDuration={2000} />
+          <FactCard value={35} label={t("Personal")} counterDuration={1800} />
         </div>
       </motion.section>
+
 
       {/* Curva inferior */}
       <div className="relative w-full overflow-hidden leading-none" aria-hidden="true">
