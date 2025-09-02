@@ -51,9 +51,10 @@ function ServiceCard({ id, title, subtitle, image }: { id: string; title: string
           />
           {/* Diagonal blanca */}
           <div
-            className="absolute top-0 left-0 w-full h-full pointer-events-none"
+            className="absolute -top-0.5 -left-0.5 w-[101%] h-[101%] pointer-events-none"
             style={{ clipPath: 'polygon(0 0, 20% 0, 0 100%)', backgroundColor: 'white' }}
           />
+
         </div>
       </div>
     </a>

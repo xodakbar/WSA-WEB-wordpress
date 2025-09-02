@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 import Header from '../components/Header';
 import HeroSection from '../components/HeroSection';
@@ -11,6 +12,11 @@ import FactCard from '../components/FactCard';
 import barcoCargaImg from '../assets/barrco-de-carga-atardecer.jpg';
 
 export default function Home() {
+  const { t, i18n } = useTranslation();
+
+  // Formatear números según idioma
+  const formatNumber = (num: number) => num.toLocaleString(i18n.language);
+
   return (
     <>
       <Header />
@@ -37,7 +43,6 @@ export default function Home() {
       <section id="services" className="px-4 md:px-8">
         <ServicesSection />
       </section>
-
 
       {/* Curva invertida */}
       <div className="relative w-full overflow-hidden leading-none rotate-180" aria-hidden="true">
@@ -76,19 +81,19 @@ export default function Home() {
         {/* Contenido principal */}
         <div className="relative z-10 max-w-5xl mx-auto px-4 md:px-8 pt-24 pb-16 text-center text-white/90">
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight mb-6 drop-shadow-md">
-            We Work every day building confidence.
+            {t('We Work every day building confidence.')}
           </h2>
           <p className="italic text-lg md:text-2xl text-white/80 drop-shadow-sm">
-            Growing together!
+            {t('Growing together!')}
           </p>
         </div>
 
         {/* Barra inferior con FactCards */}
         <div className="relative z-10 w-full bg-black/40 backdrop-blur-md px-4 md:px-12 py-8 flex flex-col md:flex-row justify-center items-center md:space-x-16 space-y-4 md:space-y-0 text-white/90">
-          <FactCard value={2014} label="Founding Year" />
-          <FactCard value={7} label="Countries" />
-          <FactCard value={500} label="Owner's Matters Services" sublabel="Per Year" />
-          <FactCard value={35} label="Staff" />
+          <FactCard value={2014} label={t('Año de fundación')} />
+          <FactCard value={7} label={t('Países')} />
+          <FactCard value={500} label={t('Servicios para asuntos del propietario')} sublabel={t('Por año')} />
+          <FactCard value={35} label={t('Personal')} />
         </div>
       </motion.section>
 

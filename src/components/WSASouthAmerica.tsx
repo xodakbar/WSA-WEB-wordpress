@@ -56,13 +56,13 @@ type Country = {
 
 const countryData: Country[] = [
   { key: 'chile', name: 'WSA CHILE', contact: 'Gabriel Riveros', email: 'wsa.chile@wsa-agencies.com', flagImage: ChileFlagImage, panelImage: ChilePanelImage, mapPosition: { top: '58%', left: '29%' } },
-  { key: 'argentina', name: 'WSA ARGENTINA', contact: 'Alejandro Cortés', email: 'wsa.argentina@wsa-agencies.com', flagImage: ArgentinaFlagImage, panelImage: ArgentinaPanelImage, mapPosition: { top: '65%', left: '42%' } },
-  { key: 'uruguay', name: 'WSA URUGUAY', contact: 'Carlos Alvarado', email: 'wsa.uruguay@wsa-agencies.com', flagImage: UruguayFlagImage, panelImage: UruguayPanelImage, mapPosition: { top: '63%', left: '45%' } },
+  { key: 'argentina', name: 'WSA ARGENTINA', contact: 'Alejandro Cortés', email: 'wsa.argentina@wsa-agencies.com', flagImage: ArgentinaFlagImage, panelImage: ArgentinaPanelImage, mapPosition: { top: '66%', left: '42%' } },
+  { key: 'uruguay', name: 'WSA URUGUAY', contact: 'Carlos Alvarado', email: 'wsa.uruguay@wsa-agencies.com', flagImage: UruguayFlagImage, panelImage: UruguayPanelImage, mapPosition: { top: '62%', left: '44%' } },
   { key: 'peru', name: 'WSA PERÚ', contact: 'Aaron Ortega', email: 'wsa.peru@wsa-agencies.com', flagImage: PeruFlagImage, panelImage: PeruPanelImage, mapPosition: { top: '33%', left: '23%' } },
   { key: 'ecuador', name: 'WSA ECUADOR', contact: 'Andrés Moreno', email: 'wsa.ecuador@wsa-agencies.com', flagImage: EcuadorFlagImage, panelImage: EcuadorPanelImage, mapPosition: { top: '19%', left: '20%' } },
   { key: 'colombia', name: 'WSA COLOMBIA', contact: 'Raymundo Barreto', email: 'wsa.colombia@wsa-agencies.com', flagImage: ColombiaFlagImage, panelImage: ColombiaPanelImage, mapPosition: { top: '12%', left: '23%' } },
   { key: 'panama', name: 'WSA PANAMÁ', contact: 'Rodrigo Hernández', email: 'wsa.panama@wsa-agencies.com', flagImage: PanamaFlagImage, panelImage: PanamaPanelImage, mapPosition: { top: '5%', left: '21%' } },
-  { key: 'antarctic', name: 'WSA ANTARCTIC', contact: '', email: 'info@wsa-agencies.com', flagImage: AntarticaFlagImage, panelImage: AntarticaPanelImage, mapPosition: { top: '59%', left: '62%' } },
+  { key: 'antarctic', name: 'WSA ANTARCTIC', contact: '', email: 'info@wsa-agencies.com', flagImage: AntarticaFlagImage, panelImage: AntarticaPanelImage, mapPosition: { top: '59%', left: '63%' } },
 ];
 
 const slideImages: Record<string, string[]> = {

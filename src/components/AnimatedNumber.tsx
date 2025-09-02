@@ -1,48 +1,37 @@
+// AnimatedNumberAlways.tsx
 import React, { useEffect, useState } from 'react';
 
 interface AnimatedNumberProps {
   value: number;
   duration?: number;
   className?: string;
-  animate?: boolean;
 }
 
-const AnimatedNumber: React.FC<AnimatedNumberProps> = ({
+const AnimatedNumberAlways: React.FC<AnimatedNumberProps> = ({
   value,
-  duration = 1500,
+  duration = 2000,
   className,
-  animate = true,
 }) => {
   const [displayValue, setDisplayValue] = useState(0);
 
   useEffect(() => {
-    if (!animate) {
-      // Mostrar valor directo si no animar
-      setDisplayValue(value);
-      return;
-    }
+    let start = 0;
+    const increment = value / (duration / 16); // 16ms ~ 60fps
 
-    let startTime: number | null = null;
-    let animationFrameId: number;
-
-    const animateNumber = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const elapsed = timestamp - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      setDisplayValue(Math.floor(progress * value));
-      if (progress < 1) {
-        animationFrameId = requestAnimationFrame(animateNumber);
-      } else {
+    const interval = setInterval(() => {
+      start += increment;
+      if (start >= value) {
         setDisplayValue(value);
+        clearInterval(interval);
+      } else {
+        setDisplayValue(Math.floor(start));
       }
-    };
+    }, 16);
 
-    animationFrameId = requestAnimationFrame(animateNumber);
+    return () => clearInterval(interval);
+  }, [value, duration]);
 
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [value, duration, animate]);
-
-  return <p className={className}>{displayValue}</p>;
+  return <div className={className}>{displayValue}</div>;
 };
 
-export default AnimatedNumber;
+export default AnimatedNumberAlways;
