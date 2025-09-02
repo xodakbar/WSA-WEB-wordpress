@@ -12,10 +12,10 @@ import FactCard from '../components/FactCard';
 import barcoCargaImg from '../assets/barrco-de-carga-atardecer.jpg';
 
 export default function Home() {
-  const { t, i18n } = useTranslation();
+  const { t,  } = useTranslation();
 
   // Formatear números según idioma
-  const formatNumber = (num: number) => num.toLocaleString(i18n.language);
+  
 
   return (
     <>
