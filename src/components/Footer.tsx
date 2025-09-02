@@ -1,8 +1,14 @@
-import { Link,  } from 'react-router-dom';
-
-const isActive = (path: string) => location.pathname.toLowerCase() === path.toLowerCase();
+import { Link, useLocation } from 'react-router-dom';
 
 export default function Footer() {
+  const location = useLocation();
+
+  const isActivePath = (path: string) =>
+    location.pathname.toLowerCase() === path.toLowerCase();
+
+  const isActiveHash = (hash: string) =>
+    location.pathname === '/' && location.hash === hash;
+
   return (
     <footer className="bg-gray-900 text-gray-400 py-10 mt-16">
       <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between gap-8">
@@ -22,34 +28,37 @@ export default function Footer() {
             to="/"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className={`transition-colors duration-200 ${
-              isActive('/') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-300 hover:text-white'
+              isActivePath('/') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-300 hover:text-white'
             }`}
           >
             HOME
           </Link>
+
+          {/* Importante: NO hagas scrollTo(top) aquí */}
           <Link
             to="/#services"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className={`transition-colors duration-200 ${
-              isActive('/#services') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
+              isActiveHash('#services') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
             }`}
           >
-            SERVICE
+            SERVICES
           </Link>
+
           <Link
             to="/about"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className={`transition-colors duration-200 ${
-              isActive('/about') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
+              isActivePath('/about') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
             }`}
           >
             ABOUT US
           </Link>
+
           <Link
             to="/contactus"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className={`transition-colors duration-200 ${
-              isActive('/contactuspage') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
+              isActivePath('/contactus') ? 'text-white underline underline-offset-4 font-semibold' : 'text-gray-400 hover:text-white'
             }`}
           >
             CONTACT US

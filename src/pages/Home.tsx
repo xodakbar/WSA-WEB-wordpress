@@ -90,10 +90,10 @@ export default function Home() {
 
         {/* Barra inferior con FactCards */}
         <div className="relative z-10 w-full bg-black/40 backdrop-blur-md px-4 md:px-12 py-8 flex flex-col md:flex-row justify-center items-center md:space-x-16 space-y-4 md:space-y-0 text-white/90">
-          <FactCard value={2014} label={t("Año de fundación")} counterDuration={2200} />
-          <FactCard value={7} label={t("Países")} counterDuration={1600} />
-          <FactCard value={500} label={t("Servicios para asuntos del propietario")} sublabel={t("Por año")} counterDuration={2000} />
-          <FactCard value={35} label={t("Personal")} counterDuration={1800} />
+          <FactCard value={2014} label={t("FOUNDING YEAR")} counterDuration={2200} />
+          <FactCard value={7} label={t("COUNTRIES")} counterDuration={1600} />
+          <FactCard value={500} label={t("OWNER'S MATTERS SERVICES AT YEAR")} sublabel={t("PER YEAR")} counterDuration={2000} />
+          <FactCard value={35} label={t("STAFF")} counterDuration={1800} />
         </div>
       </motion.section>
 

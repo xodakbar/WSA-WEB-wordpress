@@ -84,20 +84,53 @@ const ContactUsPage: React.FC = () => {
     <div className="bg-gray-50 min-h-screen flex flex-col font-sans text-gray-900">
       <Header />
 
-      {/* Hero Section */}
-      <motion.section
-        className="relative w-full h-64 md:h-96 mb-10 flex overflow-hidden rounded-b-3xl shadow-lg"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="w-1/2 h-full overflow-hidden">
-          <img src={HeroImg1} alt="Hero 1" className="w-full h-full object-cover hover:scale-105 transition-transform" draggable={false} />
-        </div>
-        <div className="w-1/2 h-full overflow-hidden">
-          <img src={HeroImg2} alt="Hero 2" className="w-full h-full object-cover hover:scale-105 transition-transform" draggable={false} />
-        </div>
-      </motion.section>
+      {/* Hero Section – Dual Diagonal (sin animación) */}
+<section
+  className="relative w-full h-[22rem] md:h-[34rem] mb-12 overflow-hidden rounded-b-[2rem] shadow-xl"
+>
+  <div className="absolute inset-0 bg-gradient-to-br from-blue-900 via-blue-800 to-sky-700" />
+
+  {/* IZQUIERDA */}
+  <div
+    className="absolute inset-y-0 left-0 w-[66%] md:w-[60%] origin-left"
+    style={{ clipPath: "polygon(0 0, 96% 0, 80% 100%, 0% 100%)" }}
+  >
+    <img
+      src={HeroImg1}
+      alt="Operations"
+      className="w-full h-full object-cover"
+      draggable={false}
+    />
+    <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-blue-900/30 via-transparent to-transparent" />
+  </div>
+
+  {/* DERECHA */}
+  <div
+    className="absolute inset-y-0 right-0 w-[66%] md:w-[60%] origin-right"
+    style={{ clipPath: "polygon(20% 0, 100% 0, 100% 100%, 4% 100%)" }}
+  >
+    <img
+      src={HeroImg2}
+      alt="Logistics"
+      className="w-full h-full object-cover"
+      draggable={false}
+    />
+    <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-blue-900/30 via-transparent to-transparent" />
+  </div>
+
+  {/* Glow sutil estático (sin mousemove) */}
+  <div
+    className="pointer-events-none absolute inset-0"
+    style={{
+      background:
+        "radial-gradient(240px 160px at 50% 50%, rgba(255,255,255,.10), transparent 55%)",
+    }}
+  />
+
+  <div className="absolute bottom-0 left-0 right-0 h-px bg-white/15" />
+</section>
+
+
 
       <main className="flex-grow max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 lg:grid-cols-2 gap-16">
         {/* Form Section */}

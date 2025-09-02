@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import {
   FacebookOutlined,
   InstagramOutlined,
@@ -14,6 +15,9 @@ export default function Header() {
 
   const isActive = (path: string) =>
     location.pathname.toLowerCase() === path.toLowerCase();
+
+  const isActiveHash = (hash: string) =>
+    location.pathname === '/' && location.hash === hash;
 
   const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -42,6 +46,20 @@ export default function Header() {
           >
             HOME
           </Link>
+
+          {/* NUEVO: SERVICES (ancla a #services) */}
+          <HashLink
+            smooth
+            to="/#services"
+            className={`transition-colors duration-200 ${
+              isActiveHash('#services')
+                ? 'text-white underline underline-offset-4 font-semibold'
+                : 'text-gray-100 hover:text-white'
+            }`}
+          >
+            SERVICES
+          </HashLink>
+
           <Link
             to="/about"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -129,27 +147,57 @@ export default function Header() {
           <nav className="flex flex-col items-center space-y-4 py-6 text-gray-100">
             <Link
               to="/"
-              onClick={() => { toggleMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              onClick={() => {
+                toggleMenu();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               className={`transition-colors duration-200 ${
-                isActive('/') ? 'text-white font-semibold underline underline-offset-4' : 'hover:text-white'
+                isActive('/')
+                  ? 'text-white font-semibold underline underline-offset-4'
+                  : 'hover:text-white'
               }`}
             >
               HOME
             </Link>
+
+            {/* NUEVO: SERVICES móvil */}
+            <HashLink
+              smooth
+              to="/#services"
+              onClick={() => toggleMenu()}
+              className={`transition-colors duration-200 ${
+                isActiveHash('#services')
+                  ? 'text-white font-semibold underline underline-offset-4'
+                  : 'hover:text-white'
+              }`}
+            >
+              SERVICES
+            </HashLink>
+
             <Link
               to="/about"
-              onClick={() => { toggleMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              onClick={() => {
+                toggleMenu();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               className={`transition-colors duration-200 ${
-                isActive('/about') ? 'text-white font-semibold underline underline-offset-4' : 'hover:text-white'
+                isActive('/about')
+                  ? 'text-white font-semibold underline underline-offset-4'
+                  : 'hover:text-white'
               }`}
             >
               ABOUT US
             </Link>
             <Link
               to="/contactus"
-              onClick={() => { toggleMenu(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+              onClick={() => {
+                toggleMenu();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
               className={`transition-colors duration-200 ${
-                isActive('/contactus') ? 'text-white font-semibold underline underline-offset-4' : 'hover:text-white'
+                isActive('/contactus')
+                  ? 'text-white font-semibold underline underline-offset-4'
+                  : 'hover:text-white'
               }`}
             >
               CONTACT US
@@ -159,9 +207,11 @@ export default function Header() {
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-white transition-colors duration-200 underline-offset-4 hover:underline"
+              onClick={() => toggleMenu()}
             >
               INTRANET
             </a>
+
             {/* Redes sociales móviles */}
             <div className="flex items-center space-x-6 text-xl mt-4">
               <a
