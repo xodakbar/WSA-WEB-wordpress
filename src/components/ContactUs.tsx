@@ -49,29 +49,22 @@ const ContactUs = () => {
 
       {/* Team Section */}
       <div className="mb-13">
-  <h2
-    className="text-3xl md:text-4xl font-bold text-gray-900 mb-8"
-    style={{ fontFamily: "'Playfair Display', serif" }}
-  >
-    Meet Our{' '}
-    <span className="text-blue-800 drop-shadow-md">Team</span>
-  </h2>
 
-  <div className="grid grid-cols-1 md:grid-cols-2 gap-12 justify-items-center">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 justify-items-center">
     {/* Alejandro Cortés E */}
-    <div className="flex flex-col items-center bg-white p-10 rounded-2xl shadow-xl border border-gray-100 max-w-lg w-full transition-transform transform hover:scale-105 duration-300 ease-in-out">
+    <div className="flex flex-col items-center bg-white p-12 md:p-14 rounded-3xl shadow-2xl border border-gray-200 max-w-2xl w-full transition-transform hover:scale-[1.03] duration-300 ease-in-out">
       <img
         src={QRAlejandro}
         alt="QR Code Alejandro Cortés E"
-        className="w-36 h-36 mb-8 rounded-xl shadow-lg"
+        className="w-44 h-44 md:w-56 md:h-56 mb-10 rounded-2xl shadow-xl"
       />
-      <h3 className="text-2xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
+      <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
         Alejandro Cortés E
       </h3>
 
       {/* Phone */}
-      <div className="w-full flex items-center justify-start text-gray-700 mb-4 text-lg font-medium">
-        <WhatsAppOutlined className="text-green-500 mr-2 text-xl" />
+      <div className="w-full flex items-center justify-start text-gray-700 mb-5 text-xl md:text-2xl font-medium">
+        <WhatsAppOutlined className="text-green-500 mr-3 text-2xl md:text-3xl" />
         <span>
           Phone:{' '}
           <a
@@ -86,8 +79,8 @@ const ContactUs = () => {
       </div>
 
       {/* Email */}
-      <div className="w-full flex items-center justify-start text-gray-700 text-lg font-medium">
-        <MailOutlined className="text-red-600 mr-2 text-xl" />
+      <div className="w-full flex items-center justify-start text-gray-700 text-xl md:text-2xl font-medium">
+        <MailOutlined className="text-red-600 mr-3 text-2xl md:text-3xl" />
         <span>
           Email:{' '}
           <a
@@ -101,19 +94,19 @@ const ContactUs = () => {
     </div>
 
     {/* Carlos Alvarado T */}
-    <div className="flex flex-col items-center bg-white p-10 rounded-2xl shadow-xl border border-gray-100 max-w-lg w-full transition-transform transform hover:scale-105 duration-300 ease-in-out">
+    <div className="flex flex-col items-center bg-white p-12 md:p-14 rounded-3xl shadow-2xl border border-gray-200 max-w-2xl w-full transition-transform hover:scale-[1.03] duration-300 ease-in-out">
       <img
         src={QRCarlos}
         alt="QR Code Carlos Alvarado T"
-        className="w-36 h-36 mb-8 rounded-xl shadow-lg"
+        className="w-44 h-44 md:w-56 md:h-56 mb-10 rounded-2xl shadow-xl"
       />
-      <h3 className="text-2xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
+      <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
         Carlos Alvarado T
       </h3>
 
       {/* Phone */}
-      <div className="w-full flex items-center justify-start text-gray-700 mb-4 text-lg font-medium">
-        <WhatsAppOutlined className="text-green-500 mr-2 text-xl" />
+      <div className="w-full flex items-center justify-start text-gray-700 mb-5 text-xl md:text-2xl font-medium">
+        <WhatsAppOutlined className="text-green-500 mr-3 text-2xl md:text-3xl" />
         <span>
           Phone:{' '}
           <a
@@ -128,8 +121,8 @@ const ContactUs = () => {
       </div>
 
       {/* Email */}
-      <div className="w-full flex items-center justify-start text-gray-700 text-lg font-medium">
-        <MailOutlined className="text-red-600 mr-2 text-xl" />
+      <div className="w-full flex items-center justify-start text-gray-700 text-xl md:text-2xl font-medium">
+        <MailOutlined className="text-red-600 mr-3 text-2xl md:text-3xl" />
         <span>
           Email:{' '}
           <a
