@@ -51,90 +51,94 @@ const ContactUs = () => {
       <div className="mb-13">
 
   <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20 justify-items-center">
-    {/* Alejandro Cortés E */}
-    <div className="flex flex-col items-center bg-white p-12 md:p-14 rounded-3xl shadow-2xl border border-gray-200 max-w-2xl w-full transition-transform hover:scale-[1.03] duration-300 ease-in-out">
-      <img
-        src={QRAlejandro}
-        alt="QR Code Alejandro Cortés E"
-        className="w-44 h-44 md:w-56 md:h-56 mb-10 rounded-2xl shadow-xl"
-      />
-      <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
-        Alejandro Cortés E
-      </h3>
+  {/* Alejandro Cortés E */}
+  <div className="flex flex-col items-center bg-white p-12 md:p-14 rounded-3xl shadow-2xl border border-gray-200 max-w-2xl w-full transition-transform hover:scale-[1.03] duration-300 ease-in-out">
+    <img
+      src={QRAlejandro}
+      alt="QR Code Alejandro Cortés E"
+      className="w-44 h-44 md:w-56 md:h-56 mb-10 rounded-2xl shadow-xl"
+    />
+    <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
+      Alejandro Cortés E
+    </h3>
 
-      {/* Phone */}
-      <div className="w-full flex items-center justify-start text-gray-700 mb-5 text-xl md:text-2xl font-medium">
-        <WhatsAppOutlined className="text-green-500 mr-3 text-2xl md:text-3xl" />
-        <span>
-          Phone:{' '}
-          <a
-            href="https://wa.me/56996356210"
-            className="text-blue-800 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            +56 9 9635 6210
-          </a>
-        </span>
-      </div>
-
-      {/* Email */}
-      <div className="w-full flex items-center justify-start text-gray-700 text-xl md:text-2xl font-medium">
-        <MailOutlined className="text-red-600 mr-3 text-2xl md:text-3xl" />
-        <span>
-          Email:{' '}
-          <a
-            href="mailto:alejandro.cortes@wsa-agencies.com"
-            className="text-blue-800 hover:underline"
-          >
-            alejandro.cortes@wsa-agencies.com
-          </a>
-        </span>
-      </div>
+    {/* Phone */}
+    <div className="w-full flex items-center justify-start text-gray-700 mb-5 text-xl md:text-2xl font-medium">
+      <WhatsAppOutlined className="text-green-500 mr-3 text-2xl md:text-3xl" />
+      <span className="whitespace-nowrap">
+        Phone:{' '}
+        <a
+          href="https://wa.me/56996356210"
+          className="text-blue-800 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          +56 9 9635 6210
+        </a>
+      </span>
     </div>
 
-    {/* Carlos Alvarado T */}
-    <div className="flex flex-col items-center bg-white p-12 md:p-14 rounded-3xl shadow-2xl border border-gray-200 max-w-2xl w-full transition-transform hover:scale-[1.03] duration-300 ease-in-out">
-      <img
-        src={QRCarlos}
-        alt="QR Code Carlos Alvarado T"
-        className="w-44 h-44 md:w-56 md:h-56 mb-10 rounded-2xl shadow-xl"
-      />
-      <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
-        Carlos Alvarado T
-      </h3>
-
-      {/* Phone */}
-      <div className="w-full flex items-center justify-start text-gray-700 mb-5 text-xl md:text-2xl font-medium">
-        <WhatsAppOutlined className="text-green-500 mr-3 text-2xl md:text-3xl" />
-        <span>
-          Phone:{' '}
-          <a
-            href="https://wa.me/56992213900"
-            className="text-blue-800 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            +56 9 9221 3900
-          </a>
-        </span>
-      </div>
-
-      {/* Email */}
-      <div className="w-full flex items-center justify-start text-gray-700 text-xl md:text-2xl font-medium">
-        <MailOutlined className="text-red-600 mr-3 text-2xl md:text-3xl" />
-        <span>
-          Email:{' '}
-          <a
-            href="mailto:carlos.alvarado@wsa-agencies.com"
-            className="text-blue-800 hover:underline"
-          >
-            carlos.alvarado@wsa-agencies.com
-          </a>
-        </span>
+    {/* Email (1 línea con ellipsis dentro de la card) */}
+    <div className="w-full flex items-center justify-start text-gray-700 text-base md:text-lg font-medium">
+      <MailOutlined className="text-red-600 mr-3 text-xl md:text-2xl" />
+      <div className="flex-1 min-w-0 flex items-baseline gap-2">
+        <span className="whitespace-nowrap">Email:</span>
+        <a
+          href="mailto:alejandro.cortes@wsa-agencies.com"
+          className="text-blue-800 hover:underline truncate block"
+          title="alejandro.cortes@wsa-agencies.com"
+        >
+          alejandro.cortes@wsa-agencies.com
+        </a>
       </div>
     </div>
   </div>
+
+  {/* Carlos Alvarado T */}
+  <div className="flex flex-col items-center bg-white p-12 md:p-14 rounded-3xl shadow-2xl border border-gray-200 max-w-2xl w-full transition-transform hover:scale-[1.03] duration-300 ease-in-out">
+    <img
+      src={QRCarlos}
+      alt="QR Code Carlos Alvarado T"
+      className="w-44 h-44 md:w-56 md:h-56 mb-10 rounded-2xl shadow-xl"
+    />
+    <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-6 border-b-4 border-blue-700 pb-3 w-full text-center">
+      Carlos Alvarado T
+    </h3>
+
+    {/* Phone */}
+    <div className="w-full flex items-center justify-start text-gray-700 mb-5 text-xl md:text-2xl font-medium">
+      <WhatsAppOutlined className="text-green-500 mr-3 text-2xl md:text-3xl" />
+      <span className="whitespace-nowrap">
+        Phone:{' '}
+        <a
+          href="https://wa.me/56992213900"
+          className="text-blue-800 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          +56 9 9221 3900
+        </a>
+      </span>
+    </div>
+
+    {/* Email (1 línea con ellipsis dentro de la card) */}
+    <div className="w-full flex items-center justify-start text-gray-700 text-base md:text-lg font-medium">
+      <MailOutlined className="text-red-600 mr-3 text-xl md:text-2xl" />
+      <div className="flex-1 min-w-0 flex items-baseline gap-2">
+        <span className="whitespace-nowrap">Email:</span>
+        <a
+          href="mailto:carlos.alvarado@wsa-agencies.com"
+          className="text-blue-800 hover:underline truncate block"
+          title="carlos.alvarado@wsa-agencies.com"
+        >
+          carlos.alvarado@wsa-agencies.com
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 </div>
 
 
